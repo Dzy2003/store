@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.duan.Mapper.CartMapper">
+    <select id="selectVoByCids" resultType="com.duan.vo.CartVo">
+        SELECT
+            cid,
+            uid,
+            pid,
+            t_cart.price,
+            t_cart.num,
+            t_product.title,
+            t_product.price AS realPrice,
+            t_product.image
+        FROM
+            t_cart , t_product
+        WHERE
+            t_cart.pid = t_product.id
+            AND
+            cid IN (
+            <foreach collection="array" item="cid" separator="," >
+                #{cid}
+            </foreach>
+        )
+        ORDER BY
+        t_cart.created_time DESC
+    </select>
+</mapper>
