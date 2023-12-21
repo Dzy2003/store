@@ -22,21 +22,37 @@
 2. 修改`application.yml`配置文件(MySQL的`datasource`配置)
 3. 运行提供的`sql`文件
 
+## 部分功能实现
+
+1. [初始环境搭建](doc/01.md)
+2. [用户注册和登录](doc/02.md)
+3. [用户资料修改](doc/03.md)
+4. [用户上传头像](doc/04.md)
+5. [用户收货管理](doc/05.md)
+
+
+
 ## 代码结构说明
 
 ```
-Copy Code├── src/main/java/com/example/demo/  # Java源代码目录
-│   ├── config/                     # 配置类目录
-│   ├── controller/                 # 控制器类目录
-│   ├── service/                    # 服务类目录
-│   ├── repository/                 # 数据库访问类目录
-│   └── Application.java             # 项目启动类
-├── src/main/resources/              # 资源文件目录
-│   ├── static/                      # 静态资源目录
-│   ├── templates/                   # 页面模板目录（可选）
-│   ├── application.yml              # 项目配置文件
-│   └── ...
-├── src/test/java/                   # 测试代码目录
-├── pom.xml                           # Maven依赖配置文件
-└── README.md                         # 项目文档
+E:.
+├─main           
+│  ├─java  #Java源代码目录
+│  │  └─com
+│  │      └─duan
+│  │          ├─config #配置文件
+│  │          ├─Controller # 控制器层
+│  │          │  └─Exception #自定义异常
+│  │          ├─entity #实体类
+│  │          ├─interceptor #拦截器
+│  │          ├─Mapper #与数据库交互
+│  │          ├─Service #业务层
+│  │          │  └─ServiceImpl #业务实现类
+│  │          ├─util #工具类
+│  │          └─vo 给前端显示的VO对象
+│  └─resources 资源文件
+│      ├─com 
+│      │  └─duan
+│      │      └─Mapper #mapper映射文件
+│      ├─static #静态页面资源
 ```
